@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Education &middot; Ganga Meghanath</title>
+<meta name="description" content="M.S. from Purdue University and B.Tech from IIT Madras, with academic coursework and awards.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Roboto:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" href="../img/icon-32.png" sizes="32x32">
+<link rel="icon" href="../img/icon-192.png" sizes="192x192">
+<script>
+(function(){var k='theme',d=document.documentElement,
+ mq=window.matchMedia('(prefers-color-scheme: light)');
+var s=null;try{s=localStorage.getItem(k)}catch(e){}
+if(s==='light'||s==='dark')d.setAttribute('data-theme',s);
+function cur(){return d.getAttribute('data-theme')||(mq.matches?'light':'dark');}
+document.addEventListener('DOMContentLoaded',function(){
+ var b=document.getElementById('themeBtn'); if(!b)return;
+ var ico=b.querySelector('.tico'), lab=b.querySelector('.tlabel');
+ function paint(){var light=cur()==='light';
+  ico.innerHTML=light?'&#9790;':'&#9728;';
+  lab.textContent=light?'Dark':'Light';
+  b.title=light?'Switch to dark mode':'Switch to light mode';
+  b.setAttribute('aria-label',b.title);}
+ paint();
+ b.addEventListener('click',function(){
+  var next=cur()==='light'?'dark':'light';
+  d.setAttribute('data-theme',next);
+  try{localStorage.setItem(k,next)}catch(e){}
+  paint();});
+ // if they have not chosen, track their system setting live
+ if(mq.addEventListener)mq.addEventListener('change',function(){
+  if(!d.getAttribute('data-theme'))paint();});
+});})();
+</script>
+</head>
+<body>
+<div class="nav"><div class="nav-in"><a class="brand" href="../">GangaMegha</a><nav><div class="nlinks" id="navLinks"><a href="../experience/">Experience</a><a href="../publications/">Publications</a><a href="../talks/">Talks</a><a href="../writing/">Writing</a><a href="../projects/">Projects</a><a href="../education/">Education</a></div><button class="searchbtn" id="searchBtn" aria-label="Search" title="Search (press /)">&#128269;</button><button class="toggle" id="themeBtn" title="Switch theme" aria-label="Switch theme"><span class="tico">&#9728;</span><span class="tlabel">Light</span></button><button class="burger" id="navBurger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></nav></div></div>
+<div class="page">
+<p class="back"><a href="../">&larr; Home</a></p>
+<h1>Education</h1>
+<p class="meta">Degrees, the coursework behind them, and academic awards.</p>
+
+<div class="entry"><div class="top"><h3>Purdue University</h3><span class="when">Jan 2021 &ndash; Dec 2022</span></div><div class="where"><span class="rl">M.S., School of Electrical and Computer Engineering</span><span class="lc">West Lafayette, IN, USA</span></div><p class="tags">GPA 4.0/4.0 | computational neuroscience | graduate teaching assistant, Python laboratories for 44 students</p></div>
+<div class="entry"><div class="top"><h3>Indian Institute of Technology Madras</h3><span class="when">Aug 2015 &ndash; May 2019</span></div><div class="where"><span class="rl">B.Tech, Electrical Engineering, Minor in Data Science</span><span class="lc">Chennai, India</span></div><p class="tags">CGPA 8.79/10.0 | elected class representative for 130 students | academic mentor</p></div>
+
+<h2 class="sub">Academic coursework</h2>
+<h3 class="grp">Artificial intelligence and related &middot; Purdue University</h3>
+<ul class="plain cols">
+<li>CS 57700 &middot; Natural Language Processing</li>
+<li>ECE 69500 &middot; Inference and Learning in Generative Models</li>
+<li>ECE 59500 &middot; Introduction to Data Mining</li>
+<li>ECE 60800 &middot; Computational Models and Methods</li>
+</ul>
+<h3 class="grp">Artificial intelligence and related &middot; IIT Madras</h3>
+<ul class="plain cols">
+<li>CS7015 &middot; Deep Learning</li>
+<li>CS6700 &middot; Reinforcement Learning</li>
+<li>CS4011 &middot; Principles of Machine Learning</li>
+<li>CS7011 &middot; Topics in Reinforcement Learning</li>
+<li>EE6418 &middot; Game Theory</li>
+<li>EE3004 &middot; Control Engineering</li>
+<li>EE2004 &middot; Digital Signal Processing</li>
+<li>EE4371 &middot; Data Structures and Algorithms</li>
+<li>ID6040 &middot; Introduction to Robotics</li>
+<li>ID7123 &middot; Machine Intelligence and Brain Research</li>
+<li>BT6270 &middot; Computational Neuroscience</li>
+<li>MS3510 &middot; Operations Research</li>
+</ul>
+<h3 class="grp">Mathematical foundations &middot; IIT Madras</h3>
+<ul class="plain cols">
+<li>MA1101 &middot; Calculus I: Functions of One Variable</li>
+<li>MA1102 &middot; Calculus II: Functions of Several Variables</li>
+<li>MA2040 &middot; Probability, Statistics and Stochastic Processes</li>
+<li>MA2031 &middot; Linear Algebra for Engineers</li>
+<li>EE3110 &middot; Probability Foundations for Electrical Engineers</li>
+</ul>
+
+<h2 class="sub">Awards and service</h2>
+<ul class="plain">
+<li><strong>University Rover Challenge.</strong> Team Anveshak, IIT Madras. <span class="note">See the <a href="../projects/anveshak/">project page</a>.</span>
+<div class="btns"><a class="btn" href="../files/URC_certificate.jpg">Certificate</a></div></li>
+<li><strong>American Express Big Data Challenge.</strong> Runner-up at Shaastra, IIT Madras.</li>
+<li><strong>National Service Scheme, India.</strong> Volunteer, alongside Tech-Soc events at IIT Madras.
+<div class="btns"><a class="btn" href="../files/NSS.jpg">Certificate</a></div></li>
+</ul>
+
+</div>
+<footer><div class="foot-in"><p class="flinks"><a href="https://www.linkedin.com/in/gangamegha/">LinkedIn</a><a href="https://scholar.google.com/citations?user=Qn7cHcYAAAAJ&amp;hl=en">Google Scholar</a><a href="https://github.com/GangaMegha">GitHub</a><a href="https://medium.com/@ganga_megha">Medium</a><a href="../files/CV.pdf">CV (PDF)</a></p><p class="fupd">Last updated November 2026.</p></div></footer>
+
+<div class="sov" id="searchOverlay" hidden>
+<div class="sov-in">
+<button class="sov-x" id="searchClose" aria-label="Close search">&times;</button>
+<h2>Search</h2>
+<div class="sbox">
+<span class="ico">&#128269;</span>
+<input id="searchInput" type="search" placeholder="Search this site" autocomplete="off" aria-label="Search">
+<button id="searchClear" aria-label="Clear">&times;</button>
+</div>
+<div id="searchCount"></div>
+<div id="searchResults"></div>
+</div>
+</div>
+<script src="../search-data.js"></script>
+<script src="../search.js"></script>
+<script src="../nav.js"></script>
+</body>
+</html>

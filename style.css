@@ -1,0 +1,322 @@
+/* ---------- theme: dark is the default, light is opt-in via the toggle ---------- */
+/* Dark theme: neutral grey in the VS Code family. Deliberately not near-black and
+   not maximum contrast -- body text sits at 10.2:1, since over-cranked contrast on a
+   dark field causes the halation that makes dark mode tiring to read. */
+:root{
+ --bg:#1e1e1e; --bg-alt:#252526; --fg:rgba(226,226,226,.92); --muted:#9a9a9a;
+ --rule:#363636; --link:#8cb4cf; --btn-bd:#3f5566; --nav-bg:rgba(30,30,30,.92);
+ --head:#8b8b8b; --shadow:0 8px 28px rgba(0,0,0,.5); --plate:#c9c9c9;
+ --mark-bg:#4d4320; --mark-fg:#fff6d6;
+}
+:root[data-theme="light"]{
+ --bg:#fffdfa; --bg-alt:#f7f3ec; --fg:rgba(32,26,21,.86); --muted:#6f6660;
+ --rule:#ebe4da; --link:#35618f; --btn-bd:#c3d2e2; --nav-bg:rgba(255,253,250,.92);
+ --head:#6f685d; --shadow:0 8px 28px rgba(60,40,20,.16); --plate:#fffdfa; --mark-bg:#fff3bf; --mark-fg:inherit;
+}
+
+/* No explicit choice yet: follow the visitor's system setting. An explicit
+   choice sets data-theme and wins over this. Generated from the block above
+   by tools/sync-theme.py -- edit the light values there, not here. */
+@media (prefers-color-scheme: light){
+ :root:not([data-theme="dark"]){
+  --bg:#fffdfa; --bg-alt:#f7f3ec; --fg:rgba(32,26,21,.86); --muted:#6f6660;
+  --rule:#ebe4da; --link:#35618f; --btn-bd:#c3d2e2; --nav-bg:rgba(255,253,250,.92);
+  --head:#6f685d; --shadow:0 8px 28px rgba(60,40,20,.16); --plate:#fffdfa; --mark-bg:#fff3bf; --mark-fg:inherit;
+ }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:4.5rem;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);
+ font:400 16.17px/1.65 Roboto,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+h1,h2,h3,.brand,nav a{font-weight:400;color:var(--fg);line-height:1.25;
+ font-family:Montserrat,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+a{color:var(--link);text-decoration:none}
+a:hover{text-decoration:underline}
+p{margin:0 0 1rem}
+
+/* ---------- top nav ---------- */
+.nav{position:sticky;top:0;z-index:50;background:var(--nav-bg);backdrop-filter:saturate(180%) blur(8px);
+ border-bottom:1px solid var(--rule)}
+.nav-in{max-width:68rem;margin:0 auto;padding:.85rem 1.25rem;display:flex;align-items:center;gap:1.4rem}
+.brand{font-weight:700;font-size:1.22rem;letter-spacing:-.01em}
+.brand:hover{text-decoration:none}
+nav{margin-left:auto;display:flex;align-items:center;gap:1.35rem;flex-wrap:wrap}
+nav a{font-size:.95rem}
+nav a:hover{color:var(--link);text-decoration:none}
+.searchbtn,.toggle{background:none;border:0;cursor:pointer;color:var(--fg);padding:.2rem;font-size:1rem;line-height:1}
+.searchbtn:hover,.toggle:hover{color:var(--link)}
+.toggle{display:inline-flex;align-items:center;gap:.4rem;border:1px solid var(--rule);border-radius:2rem;
+ padding:.26rem .66rem;font-size:.85rem;font-family:inherit}
+.toggle .tlabel{font-size:.82rem}
+@media (max-width:46rem){.toggle .tlabel{display:none}.toggle{border:0;padding:.2rem}}
+/* ---------- collapsing nav ----------
+   nav.js adds .is-collapsed to .nav-in when the links will not fit on one
+   line, and .is-open while the panel is showing. Search and the theme toggle
+   stay in the bar; only the section links move into the panel. */
+.burger{display:none;background:none;border:0;cursor:pointer;color:var(--fg);padding:.3rem;line-height:0}
+.burger:hover{color:var(--link)}
+.burger svg{width:1.3rem;height:1.3rem;display:block;fill:none;stroke:currentColor;
+ stroke-width:2;stroke-linecap:round}
+nav .nlinks{display:flex;align-items:center;gap:1.35rem;flex-wrap:wrap}
+.nav-in.is-collapsed .burger{display:block}
+.nav-in.is-collapsed nav .nlinks{display:none;position:absolute;top:100%;right:1.25rem;left:1.25rem;
+ flex-direction:column;align-items:flex-start;gap:0;padding:.35rem 0;
+ background:var(--bg);border:1px solid var(--rule);border-radius:6px;
+ box-shadow:0 10px 28px rgba(0,0,0,.28)}
+.nav-in.is-collapsed nav .nlinks a{display:block;width:100%;padding:.6rem 1rem;font-size:1rem}
+.nav-in.is-collapsed nav .nlinks a:hover{background:var(--rule);text-decoration:none}
+.nav-in.is-collapsed.is-open nav .nlinks{display:flex}
+
+
+/* ---------- sections ---------- */
+section{border-bottom:1px solid var(--rule)}
+section:nth-of-type(even){background:var(--bg-alt)}
+.row{max-width:68rem;margin:0 auto;padding:6.4rem 1.25rem;display:grid;
+ grid-template-columns:15rem 1fr;gap:2.5rem;align-items:start}
+.row > h2{margin:0;font-size:2.35rem;line-height:1.1;font-weight:400;color:var(--head);letter-spacing:-.02em}
+.col{min-width:0}
+/* The last element in a column carried its own bottom margin, so sections ending
+   in a 'more' link sat 17px lower than their top padding. Padding alone sets the
+   space now, so every section is symmetrical. */
+.col > :last-child{margin-bottom:0}
+.row > .col:last-child{max-width:40rem}
+#experience .row > .col:last-child,
+#education .row > .col:last-child{max-width:46rem}
+
+/* ---------- hero ---------- */
+.hero .row{padding-top:5rem;padding-bottom:5rem}
+.hero img.avatar{width:15rem;height:18.75rem;border-radius:12px;object-fit:cover;display:block;
+ box-shadow:var(--shadow)}
+.hero h1{margin:1.25rem 0 .2rem;font-size:1.5rem;font-weight:300;color:var(--fg);text-align:center;
+ letter-spacing:-.01em}
+.hero .role{color:var(--muted);font-weight:300;text-align:center;margin:0 0 1.1rem}
+.social{display:flex;gap:1rem;justify-content:center;align-items:center;flex-wrap:wrap}
+/* Icons sit in neutral ink so the accent is reserved for text links; five solid
+   accent-coloured shapes outweighed everything else in the hero. */
+.social a{display:inline-flex;align-items:center;justify-content:center;color:var(--muted);line-height:1}
+.social a svg{width:1.65rem;height:1.65rem;display:block;fill:currentColor}
+.social a.cv{font:700 1.25rem/1 Montserrat,sans-serif;letter-spacing:-.02em}
+.social a:hover{color:var(--link);opacity:1;text-decoration:none}
+/* One ink for every icon. Partial brand colours read as an accident: three
+   blues plus GitHub's black made it look unfinished. The shapes are
+   recognisable without their brand colour. */
+
+/* ---------- buttons, entries ---------- */
+.btns{display:flex;gap:.5rem;flex-wrap:wrap;margin:.55rem 0 0}
+.btn{display:inline-block;padding:.375rem .75rem;border:1px solid var(--link);border-radius:4px;
+ font-size:.95rem;line-height:1.5;color:var(--link);white-space:nowrap}
+.btn:hover{background:var(--link);color:var(--bg);text-decoration:none}
+.entry{margin:0 0 1.75rem} .entry:last-child{margin-bottom:0}
+/* A long title used to push the date onto its own line and break the right-hand
+   column. Let the title wrap inside itself and pin the date to the first line. */
+.entry .top{display:flex;justify-content:space-between;gap:1rem;align-items:baseline;
+ flex-wrap:nowrap}
+.entry .top h3{min-width:0}
+.entry .when{flex:none}
+.entry h3{margin:0;font-size:1.03rem;font-weight:700}
+.entry .when{color:var(--muted);font-size:.85rem;white-space:nowrap}
+/* The role line is metadata about the job, the tags line is topics. They were
+   the same colour and size, so the two read as one block of grey. */
+.entry .where{color:var(--fg);font-size:.93rem;margin:.1rem 0 .35rem}
+.entry p{margin:0;font-size:.96rem}
+/* a role describing two separate projects needs them visibly separate */
+.entry p + p{margin-top:.7rem}
+/* Role left, location right, lining the location up under the date so the two
+   pieces of metadata form a column instead of running together on one line. */
+/* Any entry whose where-line is split into role and location gets the two-column
+   treatment. Listing section ids here meant every new section had to be added by
+   hand, and #talks and #projects were missed. */
+.entry .where{display:flex;justify-content:space-between;gap:.75rem 1.25rem;flex-wrap:wrap}
+/* margin-left:auto keeps the venue right-aligned whether or not the row has a
+   left label, so an entry with only a venue needs no empty placeholder span. */
+.entry .where .lc{color:var(--muted);white-space:nowrap;margin-left:auto}
+/* venue names are long; let them wrap rather than overflow */
+#talks .entry .where .lc,
+#writing .entry .where .lc,
+#projects .entry .where .lc,
+.page .entry .where .lc{white-space:normal;text-align:right}
+#talks .entry .where .rl,
+#writing .entry .where .rl,
+#projects .entry .where .rl{min-width:0}
+
+/* Education uses the same grid as Experience but carries less weight: smaller
+   plates and no rail. The rail says "a career in sequence"; two degrees are
+   facts, not a journey, and seven years of work should lead the page. */
+#education .tl > li{grid-template-columns:6.5rem 1fr;gap:1.1rem;padding-bottom:1.7rem}
+#education .tl-logo{width:6.5rem;height:2.6rem;border-radius:7px}
+#education .tl > li:not(:last-child)::before{display:none}
+#education .entry h3{font-size:.99rem}
+
+/* ---------- experience timeline ---------- */
+.tl{list-style:none;margin:0;padding:0}
+.tl > li{position:relative;display:grid;grid-template-columns:7.5rem 1fr;gap:1.3rem;
+ padding:0 0 2.1rem}
+.tl > li:last-child{padding-bottom:0}
+/* the rail: a hairline from under one tile to the next */
+.tl > li:not(:last-child)::before{content:"";position:absolute;left:3.75rem;
+ top:2.85rem;bottom:.35rem;width:1px;margin-left:-.5px;background:var(--rule)}
+/* Logo tiles keep a light plate in both themes so brand marks read correctly.
+   Swap a letter for an image by dropping a file into img/logos/ and running
+   tools/set-logos.py -- see img/logos/README.md. */
+.tl-logo{width:7.5rem;height:3rem;border-radius:8px;display:flex;align-items:center;
+ justify-content:center;background:var(--plate);color:#2b251e;overflow:hidden;
+ font:700 1.05rem/1 Montserrat,sans-serif;letter-spacing:-.02em;
+ box-shadow:0 1px 2px rgba(0,0,0,.18);margin-top:.15rem}
+.tl-logo img{width:100%;height:100%;object-fit:contain;padding:.1rem;
+ box-sizing:border-box;display:block}
+.tl .entry{margin:0}
+.tl .entry .top{margin-top:.2rem}
+
+/* ---------- experience page: roles grouped under their employer ----------
+   Six equal blocks hid the shape of the career. Grouping contiguous runs at one
+   employer gives the same four-row spine as the home page, so the page reads as
+   that spine opened up. Only the roles carry dates: an employer range would just
+   restate the first and last role's months. */
+.page .tl > li:not(:last-child)::before{top:3.1rem}
+.page .tl > li{padding-bottom:2.6rem}
+h2.emp{margin:0;font-size:1.18rem;font-weight:700;letter-spacing:-.01em}
+.eloc{color:var(--muted);font-size:.88rem;margin:.15rem 0 1rem}
+/* Roles sit together at the top of an employer group, then one description
+   covers the whole tenure. Work at one employer rarely splits cleanly by job
+   title -- forcing a paragraph per role made overlapping projects read as if
+   they were separate pieces of work. */
+.roles{list-style:none;margin:.45rem 0 0;padding:0}
+.roles > li{position:relative;display:flex;justify-content:space-between;
+ gap:.2rem 1.25rem;align-items:baseline;flex-wrap:wrap;padding-left:1.15rem}
+.roles > li + li{margin-top:.45rem}
+.roles h3{margin:0;font-size:1.03rem;font-weight:700}
+.roles .when{color:var(--muted);font-size:.85rem;white-space:nowrap;margin-left:auto}
+/* a dot per role, joined by a hairline, when the group holds more than one */
+.roles > li:not(:only-child)::before{content:"";position:absolute;left:0;top:.46rem;
+ width:7px;height:7px;border-radius:50%;background:var(--muted)}
+.roles > li:not(:only-child):not(:last-child)::after{content:"";position:absolute;
+ left:3px;top:1.15rem;bottom:-.45rem;width:1px;background:var(--rule)}
+.work{margin-top:1.05rem;max-width:40rem}
+.work p + p{margin-top:.7rem}
+/* Several distinct projects inside one tenure. A small header per project with
+   its own stack beats one tag line for the whole employer, because the tools
+   differ per project and a wall of three paragraphs gives the eye nothing. */
+/* Projects collapse. An employer can hold four or five of them, and the page
+   was becoming a wall; the titles are the scannable layer and the detail is one
+   click away. <details> gives click, keyboard and no JavaScript, and the text
+   stays in the DOM so site search still finds it. */
+.work details.proj + details.proj{margin-top:.5rem}
+.work details.proj > summary{display:flex;align-items:baseline;gap:.1rem .5rem;
+ flex-wrap:wrap;cursor:pointer;list-style:none;position:relative;
+ padding:.2rem 0 .2rem 1.15rem;border-radius:4px}
+.work details.proj > summary::-webkit-details-marker{display:none}
+/* chevron: right when closed, down when open */
+.work details.proj > summary::before{content:"";position:absolute;left:.15rem;top:.52em;
+ width:.4rem;height:.4rem;border-right:1.5px solid var(--muted);
+ border-bottom:1.5px solid var(--muted);transform:rotate(-45deg);
+ transition:transform .15s ease}
+.work details.proj[open] > summary::before{transform:rotate(45deg)}
+.work details.proj > summary h4{margin:0;font-size:.95rem;font-weight:700}
+.work details.proj > summary:hover h4{color:var(--link)}
+.work details.proj > summary:focus-visible{outline:2px solid var(--link);outline-offset:2px}
+.work details.proj > summary .stack{color:var(--muted);font-size:.82rem}
+.work details.proj > summary .stack::before{content:"\00B7";margin-right:.5rem;color:var(--muted)}
+.work details.proj > p{margin:.35rem 0 1rem 1.15rem}
+/* a printed page should show everything */
+@media print{
+ .work details.proj > summary::before{display:none}
+ .work details.proj > *{display:block !important}
+}
+.work .proj + p{margin-top:0}
+
+.pub{margin:0 0 1.9rem} .pub:last-child{margin-bottom:0}
+.pub h3{margin:0 0 .15rem;font-size:1.03rem;font-weight:700}
+.pub .venue{color:var(--muted);font-size:.93rem;margin:0}
+.pub .authors{color:var(--muted);font-size:.93rem;margin:.45rem 0 0}
+/* own name picked out of the author list without shouting */
+.pub .authors strong{font-weight:700;color:var(--fg)}
+.lede{font-size:1.22rem;font-weight:300;line-height:1.5;margin-bottom:1.35rem}
+.note{color:var(--muted);font-size:.93rem}
+/* context line above a group of entries that share a venue */
+/* Hero: cap the prose paragraphs rather than the column, so the one-line
+   interests list can use the column's full width instead of wrapping. */
+.hero .row > .col:last-child{max-width:none}
+/* The hero text matches the widest sections below (experience, education)
+   rather than the 40rem default, so the left edge of the page keeps one
+   right-hand boundary all the way down. */
+.hero .row > .col:last-child > p{max-width:46rem}
+.hero .row > .col:last-child > p.interests{max-width:none}
+ul.plain{list-style:none;padding:0;margin:0}
+ul.plain li{margin:0 0 1.15rem} ul.plain li:last-child{margin-bottom:0}
+ul.cols{columns:2;column-gap:2.2rem}
+ul.cols li{break-inside:avoid;margin:0 0 .6rem;font-size:.95rem}
+footer{max-width:68rem;margin:0 auto;padding:2rem 1.25rem 3rem;color:var(--muted);font-size:.85rem}
+.foot-in{display:flex;justify-content:space-between;align-items:baseline;gap:.6rem 2rem;flex-wrap:wrap}
+.foot-in p{margin:0}
+.flinks{display:flex;gap:.5rem 1.4rem;flex-wrap:wrap}
+.fupd{margin-left:auto}
+
+/* ---------- inner pages ---------- */
+.page{max-width:52rem;margin:0 auto;padding:3rem 1.25rem 1rem}
+.page h1{font-size:1.9rem;line-height:1.2;margin:0 0 .25rem;letter-spacing:-.02em}
+.page .meta{color:var(--muted);font-size:.9rem;margin:0 0 1.5rem}
+.back{font-size:.92rem;margin:0 0 1.8rem}
+.page > p,.page .entry,.page ul.plain:not(.cols) > li{max-width:40rem}
+
+/* ---------- search ---------- */
+.sov{position:fixed;inset:0;z-index:100;background:var(--bg);overflow-y:auto;overscroll-behavior:contain}
+.sov[hidden]{display:none}
+.sov-in{max-width:62rem;margin:0 auto;padding:3rem 1.5rem 5rem;position:relative}
+.sov h2{font-size:3rem;font-weight:400;margin:0 0 1.6rem;color:var(--fg);letter-spacing:-.02em}
+.sov-x{position:absolute;top:3.1rem;right:1.5rem;width:2.6rem;height:2.6rem;border:0;border-radius:50%;
+ background:var(--head);color:var(--bg);font-size:1.3rem;line-height:1;cursor:pointer}
+.sov-x:hover{filter:brightness(1.15)}
+.sbox{display:flex;align-items:center;gap:.7rem;border:2px solid var(--link);border-radius:2rem;
+ padding:.7rem 1.1rem;background:var(--bg)}
+.sbox input{flex:1;border:0;outline:0;background:transparent;color:var(--fg);font:inherit;font-size:1.05rem;min-width:0}
+.sbox input::-webkit-search-cancel-button,.sbox input::-webkit-search-decoration{-webkit-appearance:none;appearance:none;display:none}
+.sbox .ico{color:var(--muted);flex:none}
+.sbox button{border:0;background:none;color:var(--link);cursor:pointer;font-size:1.1rem;line-height:1;padding:.1rem .2rem}
+#searchCount{font-weight:700;font-size:1.35rem;margin:1.8rem 0 1.2rem}
+#searchCount:empty{margin:0}
+.sr{margin:0 0 1.9rem}
+.sr-t{display:inline-block;font-size:1.3rem;line-height:1.35;color:var(--link);font-weight:700}
+.sr-s{color:var(--muted);font-size:.92rem;margin:.1rem 0 .4rem}
+.sr-b{margin:0;font-size:.98rem}
+.sr mark,.sr-t mark{background:var(--mark-bg);color:var(--mark-fg);padding:0 .12em;border-radius:2px}
+.sr-none{color:var(--muted)}
+
+.tags{margin:.3rem 0 0;font-size:.86rem;color:var(--muted);line-height:1.55}
+.more{margin-top:1.9rem;display:flex;gap:1.75rem;flex-wrap:wrap}
+.more a{font-size:.95rem}
+.page h2.sub{font-size:1.3rem;font-weight:400;margin:2.8rem 0 1.1rem;padding-top:1.5rem;border-top:1px solid var(--rule)}
+.page h3.grp{font-size:.95rem;font-weight:400;color:var(--muted);margin:1.7rem 0 .6rem}
+.page .entry:first-of-type{margin-top:1.6rem}
+
+@media (max-width:52rem){
+ .row{grid-template-columns:1fr;gap:1.2rem;padding:2.6rem 1.25rem}
+ .row > h2{font-size:1.6rem}
+ .hero img.avatar{width:12rem;height:15rem;margin:0 auto}
+ .hero h1{font-size:1.45rem}
+ .lede{font-size:1.12rem}
+ ul.cols{columns:1}
+ /* phone: the wordmark plate needs more room than the text column can spare,
+    so stack it above the role instead of beside it */
+ .tl > li{grid-template-columns:1fr;gap:.55rem;padding-bottom:1.9rem}
+ .tl-logo{width:6.25rem;height:2.5rem;border-radius:7px;margin-top:0}
+ .entry .where{display:block}
+ .entry .where .lc{display:block;margin-top:.1rem;text-align:left}
+ #education .tl > li{grid-template-columns:1fr;gap:.55rem}
+ #education .tl-logo{width:5.5rem;height:2.2rem}
+ .tl > li:not(:last-child)::before{display:none}
+ .tl > li:not(:last-child){border-bottom:1px solid var(--rule);margin-bottom:1.5rem;
+  padding-bottom:1.5rem}
+ /* on a phone the date wraps for longer titles only, which reads as an accident;
+    put it below the title consistently instead */
+ .entry .top{display:block}
+ .entry .when{display:block;margin-top:.15rem}
+ .page h2.sub{font-size:1.2rem}
+ nav{gap:1rem} nav a{font-size:.88rem}
+ .sov h2{font-size:2rem} .sov-x{top:2.6rem;width:2.2rem;height:2.2rem}
+}
+@media (max-width:30rem){
+ .nav-in{gap:.7rem;padding:.6rem 1rem}
+ .brand{font-size:1.05rem}
+ nav{gap:.45rem .8rem}
+ nav a{font-size:.82rem}
+}

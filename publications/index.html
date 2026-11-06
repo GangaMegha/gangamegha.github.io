@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Publications &middot; Ganga Meghanath</title>
+<meta name="description" content="Peer-reviewed publications in neural engineering and embedded machine learning systems.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Roboto:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" href="../img/icon-32.png" sizes="32x32">
+<link rel="icon" href="../img/icon-192.png" sizes="192x192">
+<script>
+(function(){var k='theme',d=document.documentElement,
+ mq=window.matchMedia('(prefers-color-scheme: light)');
+var s=null;try{s=localStorage.getItem(k)}catch(e){}
+if(s==='light'||s==='dark')d.setAttribute('data-theme',s);
+function cur(){return d.getAttribute('data-theme')||(mq.matches?'light':'dark');}
+document.addEventListener('DOMContentLoaded',function(){
+ var b=document.getElementById('themeBtn'); if(!b)return;
+ var ico=b.querySelector('.tico'), lab=b.querySelector('.tlabel');
+ function paint(){var light=cur()==='light';
+  ico.innerHTML=light?'&#9790;':'&#9728;';
+  lab.textContent=light?'Dark':'Light';
+  b.title=light?'Switch to dark mode':'Switch to light mode';
+  b.setAttribute('aria-label',b.title);}
+ paint();
+ b.addEventListener('click',function(){
+  var next=cur()==='light'?'dark':'light';
+  d.setAttribute('data-theme',next);
+  try{localStorage.setItem(k,next)}catch(e){}
+  paint();});
+ // if they have not chosen, track their system setting live
+ if(mq.addEventListener)mq.addEventListener('change',function(){
+  if(!d.getAttribute('data-theme'))paint();});
+});})();
+</script>
+</head>
+<body>
+<div class="nav"><div class="nav-in"><a class="brand" href="../">GangaMegha</a><nav><div class="nlinks" id="navLinks"><a href="../experience/">Experience</a><a href="../publications/">Publications</a><a href="../talks/">Talks</a><a href="../writing/">Writing</a><a href="../projects/">Projects</a><a href="../education/">Education</a></div><button class="searchbtn" id="searchBtn" aria-label="Search" title="Search (press /)">&#128269;</button><button class="toggle" id="themeBtn" title="Switch theme" aria-label="Switch theme"><span class="tico">&#9728;</span><span class="tlabel">Light</span></button><button class="burger" id="navBurger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></nav></div></div>
+<div class="page">
+<p class="back"><a href="../">&larr; Home</a></p>
+<h1>Publications</h1>
+<p class="meta">Peer-reviewed work. Technical articles are on the <a href="../writing/">writing page</a>, and talks and posters on the <a href="../talks/">talks page</a>.</p>
+<div class="pub"><h3>Inferring population dynamics in macaque cortex</h3>
+<p class="venue"><em>Journal of Neural Engineering</em>, 20(5):056041, 2023</p>
+<p class="authors"><strong>Ganga Meghanath</strong>, Bryan Jimenez, Joseph G. Makin</p>
+<p class="note">Compares recurrent networks, Transformers and a hybrid of the two for predicting the firing rates of recorded neurons forward in time and of neurons the electrodes never reached. Plain recurrent networks outperform both Transformers and the models built specifically for neuroscience, and a Transformer encoder adds further gains only when placed after the recurrent layers. Ranked first on 2 of 4 Neural Latents Benchmark datasets.</p>
+<div class="btns"><a class="btn" href="https://arxiv.org/abs/2304.06040">arXiv</a><a class="btn" href="https://doi.org/10.1088/1741-2552/ad0651">Journal</a><a class="btn" href="https://neurallatents.github.io/">Benchmark</a></div></div>
+<div class="pub"><h3>ApproxNet: Content and contention-aware video object classification system for embedded clients</h3>
+<p class="venue"><em>ACM Transactions on Sensor Networks</em>, 18(1), 2021</p>
+<p class="authors">Ran Xu, Rakesh Kumar, Pengcheng Wang, Peter Bai, <strong>Ganga Meghanath</strong>, Somali Chaterji, Subrata Mitra, Saurabh Bagchi</p>
+<p class="note">A video object classification system for embedded devices that trades accuracy against latency at runtime, adapting as video content changes and as other processes contend for the device. I worked on this as a summer research intern, training the local executor offline on AWS EC2 and evaluating the model on an NVIDIA Jetson TX2 board.</p>
+<div class="btns"><a class="btn" href="https://arxiv.org/abs/1909.02068">arXiv</a><a class="btn" href="https://doi.org/10.1145/3463530">Journal</a><a class="btn" href="https://approxnet.github.io/">Project</a></div></div>
+</div>
+<footer><div class="foot-in"><p class="flinks"><a href="https://www.linkedin.com/in/gangamegha/">LinkedIn</a><a href="https://scholar.google.com/citations?user=Qn7cHcYAAAAJ&amp;hl=en">Google Scholar</a><a href="https://github.com/GangaMegha">GitHub</a><a href="https://medium.com/@ganga_megha">Medium</a><a href="../files/CV.pdf">CV (PDF)</a></p><p class="fupd">Last updated November 2026.</p></div></footer>
+
+<div class="sov" id="searchOverlay" hidden>
+<div class="sov-in">
+<button class="sov-x" id="searchClose" aria-label="Close search">&times;</button>
+<h2>Search</h2>
+<div class="sbox">
+<span class="ico">&#128269;</span>
+<input id="searchInput" type="search" placeholder="Search this site" autocomplete="off" aria-label="Search">
+<button id="searchClear" aria-label="Clear">&times;</button>
+</div>
+<div id="searchCount"></div>
+<div id="searchResults"></div>
+</div>
+</div>
+<script src="../search-data.js"></script>
+<script src="../search.js"></script>
+<script src="../nav.js"></script>
+</body>
+</html>

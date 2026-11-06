@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Experience &middot; Ganga Meghanath</title>
+<meta name="description" content="Applied science and data science roles at Amazon Security, Microsoft and Purdue University.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Roboto:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" href="../img/icon-32.png" sizes="32x32">
+<link rel="icon" href="../img/icon-192.png" sizes="192x192">
+<script>
+(function(){var k='theme',d=document.documentElement,
+ mq=window.matchMedia('(prefers-color-scheme: light)');
+var s=null;try{s=localStorage.getItem(k)}catch(e){}
+if(s==='light'||s==='dark')d.setAttribute('data-theme',s);
+function cur(){return d.getAttribute('data-theme')||(mq.matches?'light':'dark');}
+document.addEventListener('DOMContentLoaded',function(){
+ var b=document.getElementById('themeBtn'); if(!b)return;
+ var ico=b.querySelector('.tico'), lab=b.querySelector('.tlabel');
+ function paint(){var light=cur()==='light';
+  ico.innerHTML=light?'&#9790;':'&#9728;';
+  lab.textContent=light?'Dark':'Light';
+  b.title=light?'Switch to dark mode':'Switch to light mode';
+  b.setAttribute('aria-label',b.title);}
+ paint();
+ b.addEventListener('click',function(){
+  var next=cur()==='light'?'dark':'light';
+  d.setAttribute('data-theme',next);
+  try{localStorage.setItem(k,next)}catch(e){}
+  paint();});
+ // if they have not chosen, track their system setting live
+ if(mq.addEventListener)mq.addEventListener('change',function(){
+  if(!d.getAttribute('data-theme'))paint();});
+});})();
+</script>
+</head>
+<body>
+<div class="nav"><div class="nav-in"><a class="brand" href="../">GangaMegha</a><nav><div class="nlinks" id="navLinks"><a href="../experience/">Experience</a><a href="../publications/">Publications</a><a href="../talks/">Talks</a><a href="../writing/">Writing</a><a href="../projects/">Projects</a><a href="../education/">Education</a></div><button class="searchbtn" id="searchBtn" aria-label="Search" title="Search (press /)">&#128269;</button><button class="toggle" id="themeBtn" title="Switch theme" aria-label="Switch theme"><span class="tico">&#9728;</span><span class="tlabel">Light</span></button><button class="burger" id="navBurger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></nav></div></div>
+<div class="page">
+<p class="back"><a href="../">&larr; Home</a></p>
+<h1>Experience</h1>
+<p class="meta">Roles in reverse chronological order. A one-page summary is on the <a href="../">home page</a>; the full record is in my <a href="../files/CV.pdf">CV</a>.</p>
+<ol class="tl">
+<li><span class="tl-logo" data-logo="amazon"><img src="../img/logos/amazon.png" alt="" loading="lazy"></span><div>
+<h2 class="emp">Amazon Security</h2><p class="eloc">New York, NY, USA</p>
+<ul class="roles">
+<li><h3>Applied Scientist II, Core Infrastructure Security</h3><span class="when">Jan 2026 &ndash; Jul 2026</span></li>
+<li><h3>Data Scientist II, Proactive Security Organization</h3><span class="when">May 2025 &ndash; Dec 2025</span></li>
+</ul>
+<div class="work">
+<details class="proj"><summary><h4>Authorization-flaw detection</h4><span class="stack">Multi-agent | Strands Agents SDK</span></summary>
+<p>Lead scientist and pipeline architect for a multi-agent LLM system that finds authorization flaws in application code, chiefly insecure direct object references (IDOR). The work began at an org hackathon, where I led a seven-person cross-functional team to a proof of concept that became an official workstream. I owned the pipeline design end to end and its evaluation: it recovered 54% of known historical vulnerabilities, and on live code reached roughly 86% precision on a sample triaged by security engineers, an estimated 3&times; the true-vulnerability yield of an existing agentic scanner.</p></details>
+<details class="proj"><summary><h4>Architecture diagrams from code</h4><span class="stack">Multi-agent | Hugging Face smolagents</span></summary>
+<p>Built and optimised the resource-connectivity agent, with its custom tools and cache, for a multi-agent system generating AWS architecture diagrams from infrastructure-as-code (CDK), and designed the benchmark and evaluation methodology for the whole pipeline. The agent reached about 99% mean per-package precision and an estimated 93% conditional recall on the offline benchmark. The end-to-end system drew positive survey feedback in builder pilots, and was integrated with an internal diagramming tool and available in preview.</p></details>
+<details class="proj"><summary><h4>Security-finding classification</h4><span class="stack">RAG | Amazon Bedrock</span></summary>
+<p>Earlier, designed and experimentally validated the production architecture for a retrieval-augmented generation (RAG) pipeline mapping security findings to Common Weakness Enumeration (CWE) categories, through retrieval, reranking, classification and critique stages, selecting the configuration through model comparisons and ablations. It reached roughly 80% precision and 95% top-10 retrieval accuracy across about 940 categories, and was handed over to Amazon&rsquo;s centralized security-finding platform team. I also used the project to build evaluation practice among engineers across the organisation building their own LLM systems.</p></details>
+<details class="proj"><summary><h4>Review Priority Score</h4><span class="stack">Statistical modelling | Python</span></summary>
+<p>Designed a statistical framework for application triage, combining business impact, vulnerability likelihood and prior certification in a non-linear weighted model.</p></details></div></div></li>
+<li><span class="tl-logo" data-logo="microsoft"><img src="../img/logos/microsoft.png" alt="" loading="lazy"></span><div>
+<h2 class="emp">Microsoft</h2><p class="eloc">Redmond, WA, USA</p>
+<ul class="roles">
+<li><h3>Data Scientist II, Windows Experimentation</h3><span class="when">Jun 2024 &ndash; Apr 2025</span></li>
+<li><h3>Data Scientist I, Windows Experimentation</h3><span class="when">Feb 2023 &ndash; Jun 2024</span></li>
+<li><h3>Data Scientist Intern, Windows Data</h3><span class="when">May 2022 &ndash; Aug 2022</span></li>
+</ul>
+<div class="work">
+<details class="proj"><summary><h4>Windows 11 rollout safety</h4><span class="stack">Pattern mining &amp; machine learning | Causal discovery</span></summary>
+<p>Windows 11 2024 shipped as a controlled feature rollout: a small group of devices receives the OS first, and the group widens over time. I ran the telemetry analysis on the treatment population to identify the device patterns behind bad upgrades, so matching devices still waiting for the update could be withheld until a fix shipped.</p><p>The main challenge was the scale of feature aggregation and candidate pruning. Rollbacks and blue screens were chosen as the failure indicators, and candidate causes spanned on-device apps and drivers as well as device characteristics. I defined a per-feature failure rate and thresholds to cut that space down, then trained LightGBM for feature importance and ran causal discovery with DECI to rank what remained.</p><p>A third-party application turned up as a rollback cause in this analysis alone, with both a high failure rate and a direct link in the causal graph; engineers reproduced the failure in house and shipped a fix. Other causes were corroborated by media reports and other teams. The analysis generated and ingested a 5.6M-device blocklist for early adopters, and projected a roughly 42M-device retail list that shrank continuously as fixes shipped.</p></details>
+<details class="proj"><summary><h4>Causal discovery and inference</h4><span class="stack">DECI | DML | Azure ML</span></summary>
+<p>An experiment is the right tool when you can run one: randomise who gets what, and you know what caused what. Observational causal methods are for the questions you can&rsquo;t randomise, where you have to separate what is actually driving an outcome from what merely moves alongside it. They are also how you work out which hypotheses deserve an experiment. Windows teams brought those questions to me.</p><p>Before letting the organisation rely on a new method, I validated Deep End-to-End Causal Inference (DECI) on synthetic data where the true causes were already known. I kept the two halves of the work apart: first finding which factors plausibly drive an outcome, then estimating how large each effect is. My own analyses covered what causes a Windows device to be replaced by a non-Windows one, run separately for different user cohorts, and what drives click-through on a follow-up setup screen offering extra OneDrive storage. I shared both as estimates, with the follow-up experiments needed to confirm them.</p><p>Six other teams came to me for help with study design, choosing the right controls and picking a method, one of them working with an external customer.</p><p>Teams were running these studies in one-off personal scripts, which is error prone. I designed a reusable service so they could run their own analyses reliably: a team points at its data and names which columns are the treatment, the outcome and the confounders, with guidance built in for those choices. Double machine learning was the first method I built into it, as an Azure ML pipeline.</p></details>
+<details class="proj"><summary><h4>EU Digital Markets Act compliance</h4><span class="stack">Compliance strategy</span></summary>
+<p>Led the experimentation platform&rsquo;s DMA compliance strategy, representing it on a cross-functional Windows team. Assessed how the requirements affected experiment scorecards and cross-product measurement, authored the approved engineering specification and mitigation plan, and drove implementation across the major affected areas before the compliance deadline.</p></details>
+<details class="proj"><summary><h4>Experiment results dashboard</h4><span class="stack">Power BI | Kusto</span></summary>
+<p>The Windows Experimentation platform (WExp) runs experiments for Windows feature teams and houses the scorecards they produce. I built a Power BI report over that Kusto dataset, so the platform can answer which kinds of experiments have moved which metrics across teams, and by how much.</p><p>Beyond identifying experiments that produced statistically significant movement in the metrics of interest, it promotes a healthy experimentation culture by surfacing which experiments clear a quality bar, such as having a defined hypothesis and success criteria. Per-metric distributions over historical experiments let teams set meaningful practical significance thresholds when defining success criteria for new ones.</p><p>Published to all WExp customers, demoed live, and shared through the Windows and Devices data newsletter.</p></details>
+<details class="proj"><summary><h4>Experimentation chatbot</h4><span class="stack">RAG | Semantic Kernel | Azure Cognitive Search</span></summary>
+<p>The Windows Experimentation platform (WExp) runs experiments for Windows feature teams. Customers brought the same questions to office hours and email threads again and again, while the wiki pages that answered them grew and went unread. I led a hackathon team to build a chatbot assistant for WExp, so teams could get fast guidance instead of waiting for office hours or hunting for it in wiki pages.</p><p>The accuracy came from the index, not the model. Each chunk was a wiki subsection carrying its section and page titles, so context survived into the smallest unit. Embedding a generated summary of each chunk rather than its raw text improved retrieval further. Built on Semantic Kernel over Azure Cognitive Search, with ada-002 embeddings and GPT-3.5 Turbo.</p><p>Presented at the hackathon science fair, and the proof of concept was adopted into an official workstream. It was later deprioritised in an org change.</p></details>
+<details class="proj"><summary><h4>Settings recommendation</h4><span class="stack">Ranking | LightGBM</span></summary>
+<p>Settings pages are hard to find, and users were averaging 4.8 clicks to change their setting. Windows 11 was bringing back the Settings home page, and I built the recommendation model behind its personalised shortcuts.</p><p>The on-device ML platform supported only a narrow set of model types. I used a LightGBM classifier and turned ranking into a binary classification problem over 35 candidate settings pages. Recommending the three pages someone used most recently already worked well, since people go back to the same settings, but a quarter of users had no history at all.</p><p>For those users, 200 telemetry events were shortlisted from the 18,000 logged in the five minutes before a setting change. Events firing at the same rate in the five minutes after were dropped as unrelated, and feature importance narrowed the rest.</p><p>Coverage went from 65% to 75%. The model shipped to retail devices through a controlled feature rollout after my internship, and was pulled back a year later when the on-device platform was retired.</p></details></div></div></li>
+<li><span class="tl-logo" data-logo="purdue"><img src="../img/logos/purdue.png" alt="" loading="lazy"></span><div>
+<h2 class="emp">Purdue University</h2><p class="eloc">West Lafayette, IN, USA</p>
+<ul class="roles">
+<li><h3>Graduate Research Assistant, Makin Lab</h3><span class="when">May 2021 &ndash; Dec 2022</span></li>
+<li><h3>Graduate Teaching Assistant</h3><span class="when">Jan 2021 &ndash; May 2021</span></li>
+</ul>
+<div class="work">
+<details class="proj"><summary><h4>Neural population dynamics</h4><span class="stack">Deep learning | RNN, Transformer</span></summary>
+<p>The motor cortex is the part of the brain that plans and drives movement, and it holds tens of millions of neurons. An implanted electrode array reaches a few hundred of them, and those few hundred do not fire independently of each other. The population as a whole follows a pattern far simpler than its neuron count suggests, and population dynamics is the description of that pattern.</p><p>The Neural Latents Benchmark set this up as a shared challenge with public datasets of recorded neural activity. Given a recording, a model has to predict how the recorded neurons go on firing further forward in time, and how the neurons the electrodes never reached fire, also forward in time.</p><p>I built and compared three kinds of model: recurrent networks, Transformers, and TERN, a hybrid that puts a Transformer encoder on top of a recurrent network. Plain recurrent networks did better than Transformers and better than the models built specifically for neuroscience, and attention helped only when it was added after the recurrent layers rather than used in place of them. The models ranked first on 2 of 4 benchmark datasets, and the work was <a href="https://doi.org/10.1088/1741-2552/ad0651">published in the <em>Journal of Neural Engineering</em></a>.</p></details>
+<details class="proj"><summary><h4>Neural speech decoding</h4><span class="stack">Transfer learning | Hugging Face Transformers, PyTorch</span></summary>
+<p>Electrodes resting on the surface of the brain record activity while someone reads a sentence aloud, and the decoding question is whether that activity can be turned back into the words. My advisor&rsquo;s <a href="https://www.nature.com/articles/s41593-020-0608-8">earlier work</a> had brought word error rate on this data down to about 3% for the best participant, using an encoder-decoder network. I looked at whether a different architecture could do better.</p><p>The dataset is four participants reading between about 450 and 800 short sentences each, collected and processed years before the project began. That makes it a small-data problem, where what matters is the structure built into a model rather than its size.</p><p>I worked through the space of alternatives: sequence-to-sequence GRUs and LSTMs with cross-attention in place of a single encoder summary, decoders pretrained on machine translation, BERT embeddings for the output words, phoneme-level rather than word-level targets, word-level segmentation of the signal, and transfer across participants. The best configuration reached about 3% word error rate for one participant on word-level-segmented data, matching the earlier result by a different route. The variants did not separate from each other by a statistically significant margin, which points at the quantity of recorded data rather than the choice of model as the limit on this problem.</p></details>
+<details class="proj"><summary><h4>Python programming lab</h4><span class="stack">Teaching | Python</span></summary>
+<p>Ran the weekly Python programming lab for 44 students in the Department of Computer and Information Technology, on Prof. Salem Tawfiq&rsquo;s course. The lectures were his; the lab was mine, including the lab assignments, homework and quizzes, office hours and weekly grading.</p></details></div></div></li>
+<li><span class="tl-logo" data-logo="microsoft"><img src="../img/logos/microsoft.png" alt="" loading="lazy"></span><div>
+<h2 class="emp">Microsoft</h2><p class="eloc">Bengaluru, India</p>
+<ul class="roles">
+<li><h3>Data &amp; Applied Scientist, Bing Ads</h3><span class="when">Jun 2019 &ndash; Dec 2020</span></li>
+</ul>
+<div class="work">
+<details class="proj"><summary><h4>Advertising policy classifiers</h4><span class="stack">Image and text classification | ONNX</span></summary>
+<p>Ads that violate adult, racy or weapon policies are rare enough that finding examples to label is most of the problem. I built sampling pipelines over term matching, classifier scores and BM25 to surface candidates, and roughly 119,000 adult and 168,000 weapon samples went out for labelling in one effort. The models were gradient-boosted trees over pretrained ResNet embeddings, alongside MobileNet, EfficientNet and BERT systems. One production classifier went from 5% to about 40% precision and from about 30% to 80% recall. I also built the Python and C# ONNX Runtime inference components, image preprocessing and parity test sets these models needed in production.</p></details>
+<details class="proj"><summary><h4>Fraud-risk feature store</h4><span class="stack">Feature engineering | Spark</span></summary>
+<p>Fraud classifiers across the platform were each recomputing the same features from account, campaign, order and ad data. I built a shared store of 367 features, refreshed every 15 minutes on a 10 to 15 minute SLA, so downstream models could read fresh features rather than derive their own.</p></details>
+<details class="proj"><summary><h4>Fraud notification reduction</h4><span class="stack">Reputation scoring</span></summary>
+<p>Fraud algorithms flagged long-standing, well-behaved advertisers often enough that the notifications lost their value. I built confidence scores over account history and trusted-account signals to suppress those cases. In offline analysis the signals cut notifications by about 13% across 28 algorithms, with roughly 300 more a month from subsegment filtering. The production piece was a generalised 64-bit mask output, so other algorithms could consume the same signals.</p></details>
+<details class="proj"><summary><h4>Account compromise detection</h4><span class="stack">Logistic regression | Embeddings</span></summary>
+<p>A compromised advertiser account usually starts pointing ads at a domain it has never used before. I modelled that signal from domain embeddings, cosine similarity between the new domain and the account&rsquo;s history, domain reputation and Bing index scores, fitted with logistic regression and split by whether the top-level domain had changed. Offline precision was modest and the approach needed at least five historical domains, so it was not a detector on its own. The feature lookup store behind it was deployed.</p></details></div></div></li>
+<li><span class="tl-logo" data-logo="purdue"><img src="../img/logos/purdue.png" alt="" loading="lazy"></span><div>
+<h2 class="emp">Purdue University</h2><p class="eloc">West Lafayette, IN, USA</p>
+<ul class="roles">
+<li><h3>Summer Research Intern</h3><span class="when">May 2018 &ndash; Jul 2018</span></li>
+</ul>
+<div class="work">
+<details class="proj"><summary><h4>Video analytics on edge devices</h4><span class="stack">Edge ML | NVIDIA Jetson, AWS EC2</span></summary>
+<p>Machine learning intern with Prof. Saurabh Bagchi in the School of Electrical and Computer Engineering, on <a href="../publications/">ApproxNet</a>, an architecture for runtime approximation during video analytics on edge devices. Trained its local executor offline on AWS EC2 and evaluated the model on an NVIDIA Jetson TX2 embedded board.</p></details></div></div></li>
+<li><span class="tl-logo" data-logo="scancafe"><img src="../img/logos/scancafe.png" alt="" loading="lazy"></span><div>
+<h2 class="emp">ScanCafe</h2><p class="eloc">Kochi, Kerala, India</p>
+<ul class="roles">
+<li><h3>Machine Learning Intern</h3><span class="when">May 2017 &ndash; Jul 2017</span></li>
+</ul>
+<div class="work">
+<details class="proj"><summary><h4>Image tagging at scale</h4><span class="stack">Computer vision APIs | AWS Rekognition</span></summary>
+<p>Integrated AWS Rekognition into the company&rsquo;s REST framework using Boto3 and Python. Processed over 300,000 images through Rekognition and the EyeEm vision API, analysed the stored results in MongoDB, and built montage visualisations of faces extracted from the categorised images.</p></details></div></div></li>
+</ol>
+</div>
+<footer><div class="foot-in"><p class="flinks"><a href="https://www.linkedin.com/in/gangamegha/">LinkedIn</a><a href="https://scholar.google.com/citations?user=Qn7cHcYAAAAJ&amp;hl=en">Google Scholar</a><a href="https://github.com/GangaMegha">GitHub</a><a href="https://medium.com/@ganga_megha">Medium</a><a href="../files/CV.pdf">CV (PDF)</a></p><p class="fupd">Last updated November 2026.</p></div></footer>
+
+<div class="sov" id="searchOverlay" hidden>
+<div class="sov-in">
+<button class="sov-x" id="searchClose" aria-label="Close search">&times;</button>
+<h2>Search</h2>
+<div class="sbox">
+<span class="ico">&#128269;</span>
+<input id="searchInput" type="search" placeholder="Search this site" autocomplete="off" aria-label="Search">
+<button id="searchClear" aria-label="Clear">&times;</button>
+</div>
+<div id="searchCount"></div>
+<div id="searchResults"></div>
+</div>
+</div>
+<script src="../search-data.js"></script>
+<script src="../search.js"></script>
+<script src="../nav.js"></script>
+</body>
+</html>
